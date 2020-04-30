@@ -11,8 +11,7 @@ public class OrdersWriter {
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
         for (int i = 0; i < orders.getOrdersCount(); i++) {
-            Order order = orders.getOrder(i);
-            sb.append(formatOrder(order));
+            sb.append(formatOrder(orders.getOrder(i)));
         }
 
         if (orders.getOrdersCount() > 0) {
