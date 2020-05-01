@@ -48,8 +48,8 @@ public class OrdersWriter {
         sb.append(formatField("color", getColorFor(product)));
         sb.append(", ");
 
-        if (product.getSize() != Product.SIZE_NOT_APPLICABLE) {
-            sb.append(formatField("size", getSizeFor(product)));
+        if (product.getSize() != ProductSize.NOT_APPLICABLE) {
+            sb.append(formatField("size", product.getSize().toString()));
             sb.append(", ");
         }
 
@@ -73,25 +73,6 @@ public class OrdersWriter {
         sb.append("\"").append(nameField).append("\": ");
         sb.append(object.toString());
         return sb.toString();
-    }
-
-    private String getSizeFor(Product product) {
-        switch (product.getSize()) {
-            case 1:
-                return "XS";
-            case 2:
-                return "S";
-            case 3:
-                return "M";
-            case 4:
-                return "L";
-            case 5:
-                return "XL";
-            case 6:
-                return "XXL";
-            default:
-                return "Invalid Size";
-        }
     }
 
     private String getColorFor(Product product) {
