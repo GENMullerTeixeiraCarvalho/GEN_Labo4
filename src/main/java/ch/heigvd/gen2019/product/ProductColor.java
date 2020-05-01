@@ -1,4 +1,4 @@
-package ch.heigvd.gen2019;
+package ch.heigvd.gen2019.product;
 
 public enum ProductColor {
     NONE("no color"), BLUE("blue"), RED("red"), YELLOW("yellow");

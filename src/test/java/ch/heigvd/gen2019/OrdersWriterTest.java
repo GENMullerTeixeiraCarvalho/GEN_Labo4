@@ -1,5 +1,7 @@
 package ch.heigvd.gen2019;
 
+import ch.heigvd.gen2019.order.*;
+import ch.heigvd.gen2019.product.*;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.BeforeEach;
 import static org.junit.jupiter.api.Assertions.*;

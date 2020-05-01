@@ -1,4 +1,6 @@
-package ch.heigvd.gen2019;
+package ch.heigvd.gen2019.order;
+
+import ch.heigvd.gen2019.product.*;
 
 public class OrdersWriter {
     private Orders orders;

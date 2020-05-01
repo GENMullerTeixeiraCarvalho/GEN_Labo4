@@ -1,4 +1,6 @@
-package ch.heigvd.gen2019;
+package ch.heigvd.gen2019.order;
+
+import ch.heigvd.gen2019.product.Product;
 
 import java.util.ArrayList;
 import java.util.List;
