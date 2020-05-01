@@ -28,8 +28,7 @@ public class OrdersWriter {
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
-            Product product = order.getProduct(j);
-            sb.append(getFormatProduct(product));
+            sb.append(getFormatProduct(order.getProduct(j)));
         }
 
         if (order.getProductsCount() > 0) {
