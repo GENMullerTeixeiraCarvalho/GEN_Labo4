@@ -45,7 +45,7 @@ public class OrdersWriter {
         sb.append("{");
         sb.append(formatField("code", product.getCode()));
         sb.append(", ");
-        sb.append(formatField("color", getColorFor(product)));
+        sb.append(formatField("color", product.getColor().toString()));
         sb.append(", ");
 
         if (product.getSize() != ProductSize.NOT_APPLICABLE) {
@@ -73,18 +73,5 @@ public class OrdersWriter {
         sb.append("\"").append(nameField).append("\": ");
         sb.append(object.toString());
         return sb.toString();
-    }
-
-    private String getColorFor(Product product) {
-        switch (product.getColor()) {
-            case 1:
-                return "blue";
-            case 2:
-                return "red";
-            case 3:
-                return "yellow";
-            default:
-                return "no color";
-        }
     }
 }
