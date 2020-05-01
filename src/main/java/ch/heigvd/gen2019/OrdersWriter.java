@@ -24,33 +24,28 @@ public class OrdersWriter {
     private String formatOrder(Order order) {
         StringBuffer sb = new StringBuffer();
         sb.append("{");
-        sb.append("\"id\": ");
-        sb.append(order.getOrderId());
+        sb.append(formatField("id", order.getOrderId()));
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
             Product product = order.getProduct(j);
 
             sb.append("{");
-            sb.append("\"code\": \"");
-            sb.append(product.getCode());
-            sb.append("\", ");
-            sb.append("\"color\": \"");
-            sb.append(getColorFor(product));
-            sb.append("\", ");
+            sb.append(formatField("code", product.getCode()));
+            sb.append(", ");
+            sb.append(formatField("color", getColorFor(product)));
+            sb.append(", ");
+
 
             if (product.getSize() != Product.SIZE_NOT_APPLICABLE) {
-                sb.append("\"size\": \"");
-                sb.append(getSizeFor(product));
-                sb.append("\", ");
+                sb.append(formatField("size", getSizeFor(product)));
+                sb.append(", ");
             }
 
-            sb.append("\"price\": ");
-            sb.append(product.getPrice());
+            sb.append(formatField("price", product.getPrice()));
             sb.append(", ");
-            sb.append("\"currency\": \"");
-            sb.append(product.getCurrency());
-            sb.append("\"}, ");
+            sb.append(formatField("currency", product.getCurrency()));
+            sb.append("}, ");
         }
 
         if (order.getProductsCount() > 0) {
@@ -59,6 +54,21 @@ public class OrdersWriter {
 
         sb.append("]");
         sb.append("}, ");
+        return sb.toString();
+    }
+
+    private String formatField(String nameField, String object) {
+        StringBuffer sb = new StringBuffer() ;
+        sb.append("\"").append(nameField).append("\": \"");
+        sb.append(object);
+        sb.append("\"");
+        return sb.toString();
+    }
+
+    private String formatField(String nameField, Object object) {
+        StringBuffer sb = new StringBuffer() ;
+        sb.append("\"").append(nameField).append("\": ");
+        sb.append(object.toString());
         return sb.toString();
     }
 
