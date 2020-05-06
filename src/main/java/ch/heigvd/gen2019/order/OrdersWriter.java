@@ -31,7 +31,7 @@ public class OrdersWriter {
         sb.append(", ");
         sb.append("\"products\": [");
         for (int j = 0; j < order.getProductsCount(); j++) {
-            sb.append(getFormatProduct(order.getProduct(j)));
+            sb.append(order.getProduct(j).getFormat());
         }
 
         if (order.getProductsCount() > 0) {
@@ -39,26 +39,6 @@ public class OrdersWriter {
         }
 
         sb.append("]");
-        sb.append("}, ");
-        return sb.toString();
-    }
-
-    private String getFormatProduct(Product product) {
-        StringBuffer sb = new StringBuffer();
-        sb.append("{");
-        sb.append(Formattable.formatField("code", product.getCode()));
-        sb.append(", ");
-        sb.append(Formattable.formatField("color", product.getColor().toString()));
-        sb.append(", ");
-
-        if (product.getSize() != ProductSize.NOT_APPLICABLE) {
-            sb.append(Formattable.formatField("size", product.getSize().toString()));
-            sb.append(", ");
-        }
-
-        sb.append(Formattable.formatField("price", product.getPrice()));
-        sb.append(", ");
-        sb.append(Formattable.formatField("currency", product.getCurrency()));
         sb.append("}, ");
         return sb.toString();
     }

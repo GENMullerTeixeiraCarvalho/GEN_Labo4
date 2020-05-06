@@ -1,6 +1,8 @@
 package ch.heigvd.gen2019.product;
 
-public class Product {
+import ch.heigvd.gen2019.Formattable;
+
+public class Product implements Formattable {
     public static final int SIZE_NOT_APPLICABLE = -1;
     private String code;
     private ProductColor color;
@@ -34,5 +36,25 @@ public class Product {
 
     public String getCurrency() {
         return currency;
+    }
+
+    public String getFormat(){
+        StringBuffer sb = new StringBuffer();
+        sb.append("{");
+        sb.append(Formattable.formatField("code", this.getCode()));
+        sb.append(", ");
+        sb.append(Formattable.formatField("color", this.getColor().toString()));
+        sb.append(", ");
+
+        if (this.getSize() != ProductSize.NOT_APPLICABLE) {
+            sb.append(Formattable.formatField("size", this.getSize().toString()));
+            sb.append(", ");
+        }
+
+        sb.append(Formattable.formatField("price", this.getPrice()));
+        sb.append(", ");
+        sb.append(Formattable.formatField("currency", this.getCurrency()));
+        sb.append("}, ");
+        return sb.toString();
     }
 }

@@ -15,4 +15,6 @@ public interface Formattable {
         sb.append(object.toString());
         return sb.toString();
     }
+
+    String getFormat();
 }
