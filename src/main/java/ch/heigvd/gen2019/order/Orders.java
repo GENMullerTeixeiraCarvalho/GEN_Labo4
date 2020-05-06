@@ -24,16 +24,10 @@ public class Orders implements Formattable {
     }
 
     public String getFormat(){
-        StringBuffer sb = new StringBuffer("{\"orders\": [");
+        StringBuffer sb = new StringBuffer("{\"orders\": ");
 
-        for (int i = 0; i < this.getOrdersCount(); i++) {
-            sb.append(this.getOrder(i).getFormat());
-        }
+        sb.append(Formattable.formatList(orders));
 
-        if (this.getOrdersCount() > 0) {
-            sb.delete(sb.length() - 2, sb.length());
-        }
-
-        return sb.append("]}").toString();
+        return sb.append("}").toString();
     }
 }

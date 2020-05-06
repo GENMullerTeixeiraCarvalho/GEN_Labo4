@@ -35,16 +35,8 @@ public class Order implements Formattable {
         sb.append("{");
         sb.append(Formattable.formatField("id", this.getOrderId()));
         sb.append(", ");
-        sb.append("\"products\": [");
-        for (int j = 0; j < this.getProductsCount(); j++) {
-            sb.append(this.getProduct(j).getFormat());
-        }
-
-        if (this.getProductsCount() > 0) {
-            sb.delete(sb.length() - 2, sb.length());
-        }
-
-        sb.append("]");
+        sb.append("\"products\": ");
+        sb.append(Formattable.formatList(products));
         sb.append("}, ");
         return sb.toString();
     }
