@@ -19,6 +19,10 @@ public class Orders implements Formattable {
         return orders.get(i);
     }
 
+    public String getContents(){
+        return this.getFormat();
+    }
+
     public String getFormat(){
         StringBuffer sb = new StringBuffer("{\"orders\": [");
 
