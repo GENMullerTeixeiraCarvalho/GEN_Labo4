@@ -1,5 +1,6 @@
 package ch.heigvd.gen2019.product;
 
+import ch.heigvd.gen2019.Currency;
 import ch.heigvd.gen2019.Formattable;
 
 public class Product implements Formattable {
@@ -8,9 +9,9 @@ public class Product implements Formattable {
     private ProductColor color;
     private ProductSize size;
     private double price;
-    private String currency;
+    private Currency currency;
 
-    public Product(String code, ProductColor color, ProductSize size, double price, String currency) {
+    public Product(String code, ProductColor color, ProductSize size, double price, Currency currency) {
         this.code = code;
         this.color = color;
         this.size = size;
@@ -34,7 +35,7 @@ public class Product implements Formattable {
         return price;
     }
 
-    public String getCurrency() {
+    public Currency getCurrency() {
         return currency;
     }
 
@@ -53,7 +54,7 @@ public class Product implements Formattable {
 
         sb.append(Formattable.formatField("price", this.getPrice()));
         sb.append(", ");
-        sb.append(Formattable.formatField("currency", this.getCurrency()));
+        sb.append(Formattable.formatField("currency", this.getCurrency().toString()));
         sb.append("}, ");
         return sb.toString();
     }
