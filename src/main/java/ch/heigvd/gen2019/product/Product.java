@@ -4,7 +4,6 @@ import ch.heigvd.gen2019.Currency;
 import ch.heigvd.gen2019.Formattable;
 
 public class Product implements Formattable {
-    public static final int SIZE_NOT_APPLICABLE = -1;
     private String code;
     private ProductColor color;
     private ProductSize size;
