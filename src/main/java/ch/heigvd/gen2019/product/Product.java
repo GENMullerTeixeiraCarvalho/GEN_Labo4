@@ -18,10 +18,6 @@ public class Product implements Formattable {
         this.currency = currency;
     }
 
-    public ProductColor getColor() {
-        return color;
-    }
-
     public ProductSize getSize() {
         return size;
     }
@@ -39,7 +35,7 @@ public class Product implements Formattable {
         sb.append("{");
         sb.append(Formattable.formatField("code", code));
         sb.append(", ");
-        sb.append(Formattable.formatField("color", this.getColor().toString()));
+        sb.append(Formattable.formatField("color", color.toString()));
         sb.append(", ");
 
         if (this.getSize() != ProductSize.NOT_APPLICABLE) {
