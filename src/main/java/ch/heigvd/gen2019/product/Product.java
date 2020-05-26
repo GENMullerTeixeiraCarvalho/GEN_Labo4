@@ -18,10 +18,6 @@ public class Product implements Formattable {
         this.currency = currency;
     }
 
-    public double getPrice() {
-        return price;
-    }
-
     public Currency getCurrency() {
         return currency;
     }
@@ -39,7 +35,7 @@ public class Product implements Formattable {
             sb.append(", ");
         }
 
-        sb.append(Formattable.formatField("price", this.getPrice()));
+        sb.append(Formattable.formatField("price", price));
         sb.append(", ");
         sb.append(Formattable.formatField("currency", this.getCurrency().toString()));
         sb.append("}, ");
