@@ -14,10 +14,6 @@ public class Order implements Formattable {
         this.id = id;
     }
 
-    public int getOrderId() {
-        return id;
-    }
-
     public void AddProduct(Product product) {
         products.add(product);
     }
@@ -25,7 +21,7 @@ public class Order implements Formattable {
     public String getFormat(){
         StringBuffer sb = new StringBuffer();
         sb.append("{");
-        sb.append(Formattable.formatField("id", this.getOrderId()));
+        sb.append(Formattable.formatField("id", id));
         sb.append(", ");
         sb.append("\"products\": ");
         sb.append(Formattable.formatList(products));
