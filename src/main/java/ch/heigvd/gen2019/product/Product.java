@@ -18,10 +18,6 @@ public class Product implements Formattable {
         this.currency = currency;
     }
 
-    public Currency getCurrency() {
-        return currency;
-    }
-
     public String getFormat(){
         StringBuffer sb = new StringBuffer();
         sb.append("{");
@@ -37,7 +33,7 @@ public class Product implements Formattable {
 
         sb.append(Formattable.formatField("price", price));
         sb.append(", ");
-        sb.append(Formattable.formatField("currency", this.getCurrency().toString()));
+        sb.append(Formattable.formatField("currency", currency.toString()));
         sb.append("}, ");
         return sb.toString();
     }
