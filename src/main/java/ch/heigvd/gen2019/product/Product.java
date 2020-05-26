@@ -18,10 +18,6 @@ public class Product implements Formattable {
         this.currency = currency;
     }
 
-    public String getCode() {
-        return code;
-    }
-
     public ProductColor getColor() {
         return color;
     }
@@ -41,7 +37,7 @@ public class Product implements Formattable {
     public String getFormat(){
         StringBuffer sb = new StringBuffer();
         sb.append("{");
-        sb.append(Formattable.formatField("code", this.getCode()));
+        sb.append(Formattable.formatField("code", code));
         sb.append(", ");
         sb.append(Formattable.formatField("color", this.getColor().toString()));
         sb.append(", ");
